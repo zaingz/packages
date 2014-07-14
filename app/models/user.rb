@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
       end
     #  obj.home_address = obj.home_address
-end
+  end
   reverse_geocoded_by :latitude, :longitude,
                       :address => :home_address
 

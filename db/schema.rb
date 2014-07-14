@@ -43,8 +43,7 @@ ActiveRecord::Schema.define(version: 20140714121946) do
     t.integer  "package_id"
   end
 
-  add_index "requests", ["package_id"], name: "index_requests_on_package_id", using: :btree
-  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                             default: "", null: false

@@ -30,6 +30,9 @@ gem 'devise'
 # gem 'unicorn'
 gem "paperclip"
 gem "geocoder"
+
+gem 'thin'
+gem 'faye-websocket'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
