@@ -1,0 +1,45 @@
+<h1>Welcome<%= 'to Packages'%></h1>
+<% if user_signed_in? %>
+
+
+    <!--
+    <%= image_tag current_user.avatar.url %>
+    <%= image_tag current_user.avatar.url(:medium) %>
+    -->
+    <%= image_tag current_user.avatar.url(:thumb) %>
+    <br>
+    <%= link_to "create new package", new_package_url%>
+    <hr>
+    Good to see you  <%= link_to current_user.email, edit_user_registration_path %>
+    <br> mob# <%= current_user.mobile_number %>
+
+    <%= link_to "Sign out #{current_user.username}", destroy_user_session_path, method: 'delete'%>
+    <br>
+    Listing:
+    <%= current_user.home_address  %>
+    <br>
+
+    Latitude:  <%= current_user.latitude%>
+    <br>
+    Longitute:  <%= current_user.longitude%>
+    <br>
+    <b>This user has packages: </b>
+    <br>
+    <hr>
+    <%  @current_user_packages.each do |p|%>
+        <br>
+        <%= image_tag p.image.url(:thumb) %>
+        <br>
+        <%= p.tittle%>
+
+        <br>
+        <%= p.description%>
+    <%end%>
+
+
+
+
+<% else %>
+    Sign up here <%= link_to "Sign up", new_user_registration_path, method: 'get'%>
+    Sign in here <%= link_to "Sign in", new_user_session_path %>
+<% end %>

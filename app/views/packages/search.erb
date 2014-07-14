@@ -1,0 +1,17 @@
+<tbody>
+<% @result.each do |package| %>
+    <%next if package== nil%>
+    <tr>
+      <td><%= package.tittle %></td>
+      <td><%= package.description %></td>
+      <td><%= package.src_lat %></td>
+      <td><%= package.src_lon %></td>
+      <td><%= package.dest_lat %></td>
+      <td><%= package.dest_lon %></td>
+      <td><%= package.delivered %></td>
+      <td><%= package.user.username %></td>
+      <td><%= image_tag package.image.url(:thumb) %></td>
+      <td><%= link_to "Request this package",  new_request_path( {:package_id => package.id })%></td>
+    </tr>
+<% end %>
+</tbody>

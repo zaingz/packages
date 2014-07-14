@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<%p = @package%>
+
+<p>
+  <strong>Tittle:</strong>
+  <%= p.tittle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= p.description %>
+</p>
+
+<p>
+  <strong>Src lat:</strong>
+  <%= p.src_lat %>
+</p>
+
+<p>
+  <strong>Src lon:</strong>
+  <%= p.src_lon %>
+</p>
+
+<p>
+  <strong>Dest lat:</strong>
+  <%= p.dest_lat %>
+</p>
+
+<p>
+  <strong>Dest lon:</strong>
+  <%= p.dest_lon %>
+</p>
+
+<p>
+  <strong>Delivered:</strong>
+  <%= p.delivered %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= p.user %>
+</p>
+
+<%= link_to 'Edit', edit_package_path(p) %> |
+<%= link_to 'Back', packages_path %>
+
+<%= flash[:notice]%>
+    <%= @package.inspect%>

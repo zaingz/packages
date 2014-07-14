@@ -1,0 +1,42 @@
+<h1>Listing packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tittle</th>
+      <th>Description</th>
+      <th>Src lat</th>
+      <th>Src lon</th>
+      <th>Dest lat</th>
+      <th>Dest lon</th>
+      <th>Delivered</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @packages.each do |package| %>
+    <%next if package== nil%>
+
+      <tr>
+        <td><%= package.tittle %></td>
+        <td><%= package.description %></td>
+        <td><%= package.src_lat %></td>
+        <td><%= package.src_lon %></td>
+        <td><%= package.dest_lat %></td>
+        <td><%= package.dest_lon %></td>
+        <td><%= package.delivered %></td>
+        <td><%= package.user.username %></td>
+        <td><%= image_tag package.image.url(:thumb) %></td>
+        <td><%= link_to 'Show', package %></td>
+        <td><%= link_to 'Edit', edit_package_path(package) %></td>
+        <td><%= link_to 'Destroy', package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Package', new_package_path %>
